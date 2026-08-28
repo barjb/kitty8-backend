@@ -1,4 +1,4 @@
-package com.kitty8.kitty8backend.WS.Config;
+package com.kitty8.kitty8backend.Realtime.Config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -13,11 +13,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/topic");
-        config.setApplicationDestinationPrefixes("/kitty8-ws");
+        config.setApplicationDestinationPrefixes("/app");
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/kitty8-ws");
+        registry.addEndpoint("/ws").setAllowedOriginPatterns("*");
     }
 }

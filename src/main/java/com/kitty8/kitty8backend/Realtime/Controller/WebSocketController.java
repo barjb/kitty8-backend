@@ -1,4 +1,4 @@
-package com.kitty8.kitty8backend.WS.Controller;
+package com.kitty8.kitty8backend.Realtime.Controller;
 
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
