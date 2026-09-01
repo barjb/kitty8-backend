@@ -1,4 +1,4 @@
-package com.kitty8.kitty8backend.Realtime.Config;
+package com.kitty8.kitty8backend.realtime.Config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

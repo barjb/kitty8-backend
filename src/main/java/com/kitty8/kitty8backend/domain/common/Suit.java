@@ -1,4 +1,4 @@
-package com.kitty8.kitty8backend.Game.domain.common;
+package com.kitty8.kitty8backend.domain.common;
 
 public enum Suit {
     SPADE,

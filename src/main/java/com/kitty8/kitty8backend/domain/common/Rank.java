@@ -1,4 +1,4 @@
-package com.kitty8.kitty8backend.Game.domain.common;
+package com.kitty8.kitty8backend.domain.common;
 
 public enum Rank {
     ACE,
@@ -8,7 +8,7 @@ public enum Rank {
     TWO,
     THREE,
     FOUR,
-    FIVe,
+    FIVE,
     SIX,
     SEVEN,
     EIGHT,
