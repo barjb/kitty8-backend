@@ -1,9 +1,9 @@
 package com.kitty8.kitty8backend.infrastructure.persistence.repository.api;
 
-import com.kitty8.kitty8backend.infrastructure.persistence.entity.Round;
+import com.kitty8.kitty8backend.infrastructure.persistence.entity.GameEvent;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;
 
-public interface RoundRepository extends CrudRepository <Round, UUID> {
+public interface GameEventRepository extends CrudRepository<GameEvent, UUID> {
 }

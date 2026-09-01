@@ -2,7 +2,7 @@ package com.kitty8.kitty8backend.domain.common;
 
 import java.util.List;
 
-public enum GameEngineEvent {
+public enum CommandType {
     PLAYER_JOINED,
     PLAYER_LEFT,
 
@@ -26,7 +26,7 @@ public enum GameEngineEvent {
     // ROULETTE
     PLAYER_SPIN;
 
-    public boolean isRouletteEvent(GameEngineEvent event) {
+    public boolean isRouletteCommand(GameEngineEventType event) {
         return List.of(
                 START_GAME,
                 END_GAME,
@@ -39,7 +39,7 @@ public enum GameEngineEvent {
         ).contains(event);
     }
 
-    public boolean isBlackJackEvent(GameEngineEvent event) {
+    public boolean isBlackJackCommand(GameEngineEventType event) {
         return List.of(
                 START_GAME,
                 END_GAME,
@@ -57,7 +57,7 @@ public enum GameEngineEvent {
         ).contains(event);
     }
 
-    public boolean isBaccaratEvent(GameEngineEvent event) {
+    public boolean isBaccaratCommand(GameEngineEventType event) {
         return List.of(
                 START_GAME,
                 END_GAME,

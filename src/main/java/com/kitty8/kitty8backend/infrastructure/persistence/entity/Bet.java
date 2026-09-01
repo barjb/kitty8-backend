@@ -1,21 +1,33 @@
 package com.kitty8.kitty8backend.infrastructure.persistence.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Entity
 public class Bet {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID ID;
-    private UUID gameID;
-    private UUID roundID;
-    private UUID userID;
+    private Game game;
+    private Round round;
+    private Player player;
     private BigDecimal amount;
     private BigDecimal payout;
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
-    public Bet(UUID ID, UUID roundID, BigDecimal amount, BigDecimal payout, LocalDateTime createdAt) {
+    public Bet(UUID ID, Game game, Round round, Player player, BigDecimal amount, BigDecimal payout, LocalDateTime createdAt) {
         this.ID = ID;
-        this.roundID = roundID;
+        this.game = game;
+        this.round = round;
+        this.player = player;
         this.amount = amount;
         this.payout = payout;
         this.createdAt = createdAt;
@@ -25,39 +37,27 @@ public class Bet {
         return ID;
     }
 
-    public void setID(UUID ID) {
-        this.ID = ID;
+    public Game getGame() {
+        return game;
     }
 
-    public UUID getRoundID() {
-        return roundID;
+    public Round getRound() {
+        return round;
     }
 
-    public void setRoundID(UUID roundID) {
-        this.roundID = roundID;
+    public Player getPlayer() {
+        return player;
     }
 
     public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
     public BigDecimal getPayout() {
         return payout;
     }
 
-    public void setPayout(BigDecimal payout) {
-        this.payout = payout;
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }

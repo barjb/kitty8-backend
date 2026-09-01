@@ -1,7 +1,7 @@
 package com.kitty8.kitty8backend.realtime.Controller;
 
-import com.kitty8.kitty8backend.engine.Service.api.GameCommandService;
-import com.kitty8.kitty8backend.infrastructure.persistence.entity.command.BaseCommand;
+import com.kitty8.kitty8backend.engine.service.api.WebSocketCommandService;
+import com.kitty8.kitty8backend.infrastructure.persistence.entity.WebSocketCommand;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class WebSocketController {
 
-    private final GameCommandService gameCommandService;
+    private final WebSocketCommandService webSocketCommandService;
 
-    public WebSocketController(GameCommandService gameCommandService) {
-        this.gameCommandService = gameCommandService;
+    public WebSocketController(WebSocketCommandService webSocketCommandService) {
+        this.webSocketCommandService = webSocketCommandService;
     }
 
     @MessageMapping("/rooms/{id}/join")
@@ -24,7 +24,7 @@ public class WebSocketController {
     }
 
     @MessageMapping("/rooms/{id}/command")
-    public void command(@DestinationVariable String id, BaseCommand command) {
-        gameCommandService.handle(command);
+    public void command(@DestinationVariable String id, WebSocketCommand command) {
+        webSocketCommandService.handle(command);
     }
 }
